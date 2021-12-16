@@ -2,15 +2,18 @@ from tkinter import *
 import tkinter as tk
 from tkinter.constants import *
 from RaspberryPi_Read import *
-from hx711 import HX711
-import RPi.GPIO as GPIO
+from hx711 import HX711                 #library will not import properly when not on Raspberry Pi
+import RPi.GPIO as GPIO                 #library will not import properly when not on Raspberry pi
 from RaspberryPi_Read import *
 
-#init variables
+
 num_measures=3                                     #number of measurements to be taken by scale (more will be more precise)
+
+#setting to 0 helps measure confirmations later
 tare = 0
 measureval = 0
 
+#reset and clear pins and scale
 initreset()
 
 #tare scale
@@ -42,8 +45,6 @@ print('starting GUI generation')
 ##################################################
 Lframe = Frame(window)
 Lframe.pack(side = LEFT)
-
-
 ##################################################
 rightoutputframe = Frame(window)
 rightoutputframe.pack(  
